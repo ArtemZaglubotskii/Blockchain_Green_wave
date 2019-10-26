@@ -21,6 +21,8 @@ except ImportError:
 
 netconvertBinary = checkBinary('netconvert')
 sumoBinary = checkBinary('sumo')
+
+
 # build/check network
 retcode = subprocess.call(
     [netconvertBinary, "-c", "./cross3l.netccfg"], stdout=sys.stdout, stderr=sys.stderr)
@@ -51,10 +53,10 @@ step = 0
 sidVehicle = {} # vehicles that want to do side move
 
 # Run a simulation until all vehicles have arrived
-while traci.simulation.getMinExpectedNumber() > 0: 
+while traci.simulation.getMinExpectedNumber() > 0:
     traci.simulationStep()
     # step2 of side move
-    for v in sidVehicle:
+    '''for v in sidVehicle:
         traci.vehicle.moveTo(v,sidVehicle[v][0],sidVehicle[v][1]+8)
     sidVehicle.clear()
 
@@ -64,26 +66,17 @@ while traci.simulation.getMinExpectedNumber() > 0:
         for v in vehicles:
             lane = traci.vehicle.getLaneID(str(v))
             Id = traci.vehicle.getTypeID(v)
-            if Id == "AggrCar":
-                traci.vehicle.setSpeedMode(v,7)
-        
-        # step1 of side move
+            print(v + ":  " + str(traci.vehicle.getSpeed(v)))
+
+            # step1 of side move
         for l in net[e]:
             length = traci.lane.getLength(l)
             if traci.lane.getLastStepHaltingNumber(l) >= 2:
                 for v1 in traci.lane.getLastStepVehicleIDs(l):
-                    pos = traci.vehicle.getLanePosition(str(v1))
-                    if traci.vehicle.getTypeID(v1) == "AggrCar" and length - pos < 12 and length - pos > 3:
-                        b = int(l[4]) # get the index of the lane
-                        for l1 in net[e]:
-                            a = int(l1[4])
-                            if l1 != l and abs(b-a) == 1 and traci.lane.getLastStepHaltingNumber(l1) == 0:
-                                traci.vehicle.highlight(v1, (255, 0, 0, 255), -1, 1, 4,0)
-                                traci.vehicle.moveTo(v1,l1,pos+8)
-                                sidVehicle[v1] = (l, pos+8)
-                                break
+                    pos = traci.vehicle.getLanePosition(str(v1))'''
     step += 1
 
-    
-print(step)
+
+
+print(vehicles)
 traci.close()

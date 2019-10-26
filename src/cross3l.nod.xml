@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
    <node id="0" x="0.0" y="0.0" type="traffic_light"/> <!-- def. of node "0" -->
+   <node id="X" x="+200.0" y="0.0" type="traffic_light"/>
+   <node id="Y" x="0.0" y="+200.0" type="traffic_light"/>
+   <node id="XY" x="+200.0" y="+200.0" type="traffic_light"/>
 
-    <node id="q" x="+200.0" y="0.0" type="traffic_light"/>
+   <node id="L0" x="-200.0" y="0.0" type="priority"/>
+   <node id="D0" x="0.0" y="-200.0" type="priority"/>
 
-   <node id="1" x="-200.0" y="0.0" type="priority"/> <!-- def. of node "1" -->
+   <node id="UY" x="0.0" y="+400.0"    type="priority"/>
+   <node id="LY" x="-200.0" y="+200.0" type="priority"/>
 
-   <node id="3" x="0.0" y="-200.0" type="priority"/> <!-- def. of node "3" -->
-   <node id="4" x="0.0" y="+200.0" type="priority"/> <!-- def. of node "4" -->
+   <node id="UXY" x="+200.0" y="+400.0" type="priority"/>
+   <node id="RXY" x="+400.0" y="+200.0" type="priority"/>
 
-   <node id="m1" x="-40.0" y="0.0" type="priority"/> <!-- def. of node "m1" -->
-   <node id="m2" x="+40.0" y="0.0" type="priority"/> <!-- def. of node "m2" -->
-   <node id="m3" x="0.0" y="-40.0" type="priority"/> <!-- def. of node "m3" -->
-   <node id="m4" x="0.0" y="+40.0" type="priority"/> <!-- def. of node "m4" -->
+   <node id="DX" x="+200.0" y="-200.0" type="priority"/>
+   <node id="RX" x="+400.0" y="0.0" type="priority"/>
 
-   <node id="q1" x="200.0" y="+200.0" type="priority"/> <!-- def. of node "m4" -->
-   <node id="q2" x="200.0" y="-200.0" type="priority"/> <!-- def. of node "m4" -->
-   <node id="q3" x="+400.0" y="0.0" type="priority"/> <!-- def. of node "m4" -->
-
-   <node id="qm1" x="200.0" y="40.0" type="priority"/> <!-- def. of node "m1" -->
-   <node id="qm2" x="200.0" y="-40.0" type="priority"/> <!-- def. of node "m2" -->
-   <node id="qm3" x="240.0" y="0.0" type="priority"/> <!-- def. of node "m3" -->
 
 </nodes>

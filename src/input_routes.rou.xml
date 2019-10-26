@@ -1,41 +1,62 @@
-
-<!--
-<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-   <vType id="SUMO_DEFAULT_TYPE" accel="0.8" decel="4.5" sigma="0" length="5" minGap="2" maxSpeed="70"/>
-   <route id="always_right" edges="1fi 1si 4o 4fi 4si 2o 2fi 2si 3o 3fi 3si 1o 1fi"/>
-   <flow id="always_right" type="SUMO_DEFAULT_TYPE" route="always_right" begin="0" end="3030" period="30"/>
-   <route id="always_left" edges="3fi 3si 2o 2fi 2si 4o 4fi 4si 1o 1fi 1si 3o 3fi"/>
-   <flow id="always_left" type="SUMO_DEFAULT_TYPE" route="always_left" begin="0" end="3030" period="30"/>
-   <route id="horizontal" edges="2fi 2si 1o 1fi 1si 2o 2fi"/>
-   <flow id="horizontal" type="SUMO_DEFAULT_TYPE" route="horizontal" begin="0" end="3030" period="30"/>
-   <route id="vertical" edges="3fi 3si 4o 4fi 4si 3o 3fi"/>
-   <flow id="vertical" type="SUMO_DEFAULT_TYPE" route="vertical" begin="0" end="3030" period="30"/>
-</routes>
--->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
    <vTypeDistribution id="mixed">
-        <vType accel="1.0" decel="5.0" id="AggrCar" length="5.0" minGap="2.0" maxSpeed="50.0" sigma="0" color = "1,0,0" />
-        <vType accel="1.0" decel="5.0" id="Car" length="5.0" minGap="2.0" maxSpeed="50.0" sigma="0"/>
+        <vType accel="1.0" decel="5.0" id="AggrCar" length="5.0" minGap="2.0" maxSpeed="100.0" sigma="0" color = "1,0,0" />
+        <vType accel="1.0" decel="5.0" id="Car" length="5.0" minGap="2.0" maxSpeed="60.0" sigma="0"/>
+      <vType accel="1.0" decel="5.0" id="LoyalCar" length="5.0" minGap="2.0" sigma="0" color="0,1,0"/>
    </vTypeDistribution>
-<!--
-   <route id="always_right" edges="1fi 1si 3o" />
-   <route id="always_left" edges="1fi 1si 4o"/>
-   <route id="vertical" edges="4fi 4si 3o"/>
-   <route id="horizontal" edges="1fi 1si 2o"/>
 
- -->
-   <route id="always_right" edges="1fi 1si 4o 4fi 4si 2o 2fi 2si 3o 3fi 3si "/>
-   <route id="vertical" edges="3fi 3si 4o 4fi 4si 3o "/>
-   <route id="always_left" edges="3fi 3si 2o 2fi 2si 4o 4fi 4si 1o 1fi 1si 3o "/>
-   <route id="horizontal" edges="2fi 2si 1o 1fi 1si 2o q1o q1fi q1si q2o q2fi q2si q3o q3fi q3si"/>
+   <route id="01" edges=" L00 0D0"/>
+    <route id="02" edges=" L00 0X XDX"/>
+    <route id="03" edges=" L00 0X XRX"/>
+    <route id="04" edges=" L00 0X XXY XYRXY"/>
+    <route id="05" edges=" L00 0Y YXY XYRXY"/>
+
+    <route id="Y1" edges=" LYY Y0 0D0"/>
+    <route id="Y2" edges=" LYY Y0 0X XRX"/>
+    <route id="Y3" edges=" LYY Y0 0X XDX"/>
+    <route id="Y4" edges=" LYY YXY XYRXY"/>
+    <route id="Y5" edges=" LYY YXY XYX XRX"/>
+    <route id="Y6" edges=" LYY YXY XYX XDX"/>
+
+    <route id="YR1" edges=" UYY Y0 0D0"/>
+    <route id="YR2" edges=" UYY Y0 0X XRX"/>
+    <route id="YR3" edges=" UYY Y0 0X XDX"/>
+    <route id="YR4" edges=" UYY YXY XYRXY"/>
+    <route id="YR5" edges=" UYY YXY XYX XRX"/>
+    <route id="YR6" edges=" UYY YXY XYX XDX"/>
+
+    <route id="XY1" edges=" UXYXY XYRXY"/>
+    <route id="XY2" edges=" UXYXY XYX XRX"/>
+    <route id="XY3" edges=" UXYXY XYX XDX"/>
+    <route id="XY4" edges=" UXYXY XYY Y0 0D0"/>
+    <route id="XY5" edges=" UXYXY XYX X0 0D0"/>
+
+    <flow id="0XY1" type="Car" route="XY1" number = "30" />
+    <flow id="0XY2" type="Car" route="XY2" number = "30" />
+    <flow id="0XY3" type="Car" route="XY3" number = "30" />
+    <flow id="0XY4" type="Car" route="XY4" number = "30" />
+    <flow id="0XY5" type="Car" route="XY5" number = "30" />
 
 
+    <flow id="0XC1" type="Car" route="01" number = "30" />
+    <flow id="0XC2" type="Car" route="02" number = "30" />
+    <flow id="0XC3" type="Car" route="03" number = "30" />
+    <flow id="0XC4" type="Car" route="04" number = "30" />
+    <flow id="0XC5" type="Car" route="05" number = "30" />
 
-   <flow id="alC" type="Car" route="always_left" number = "10" />
-   <flow id="arC" type="Car" route="always_right" number = "10" />
-   <flow id="hoC" type="Car" route="horizontal" number = "10" />
-   <flow id="veC" type="Car" route="vertical" number = "10" />
 
+    <flow id="0YC1" type="Car" route="Y1" number = "30" />
+    <flow id="0YC2" type="Car" route="Y2" number = "30" />
+    <flow id="0YC3" type="Car" route="Y3" number = "30" />
+    <flow id="0YC4" type="Car" route="Y4" number = "30" />
+    <flow id="0YC5" type="Car" route="Y5" number = "30" />
+    <flow id="0YC6" type="Car" route="Y6" number = "30" />
 
+    <flow id="0YRC1" type="Car" route="YR1" number = "30" />
+    <flow id="0YRC2" type="Car" route="YR2" number = "30" />
+    <flow id="0YRC3" type="Car" route="YR3" number = "30" />
+    <flow id="0YRC4" type="Car" route="YR4" number = "30" />
+    <flow id="0YRC5" type="Car" route="YR5" number = "30" />
+    <flow id="0YRC6" type="Car" route="YR6" number = "30" />
 
 </routes>

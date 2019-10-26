@@ -1,20 +1,56 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <connections>
 
-   <connection from="1si" to="3o"/>
-   <connection from="1si" to="2o"/>
-   <connection from="1si" to="4o"/>
+   <connection from="L00" to="0D0"/>
+   <connection from="L00" to="0X"/>
+   <connection from="L00" to="0Y"/>
 
-   <connection from="2si" to="4o"/>
-   <connection from="2si" to="3o"/>
-   <connection from="2si" to="1o"/>
+   <connection from="LYY" to="YXY"/>
+   <connection from="LYY" to="Y0"/>
+   <connection from="LYY" to="YUY"/>
 
-   <connection from="3si" to="4o"/>
-   <connection from="3si" to="2o"/>
-   <connection from="3si" to="1o"/>
+   <connection from="UYY" to="YLY"/>
+   <connection from="UYY" to="Y0"/>
+   <connection from="UYY" to="YXY"/>
 
-   <connection from="4si" to="3o"/>
-   <connection from="4si" to="2o"/>
-   <connection from="4si" to="1o"/>
+   <connection from="UXYXY" to="XYRXY"/>
+   <connection from="UXYXY" to="XYY"/>
+   <connection from="UXYXY" to="XYX"/>
+
+
+   <connection from="RXYXY" to="XYUXY"/>
+   <connection from="RXYXY" to="XYY"/>
+   <connection from="RXYXY" to="XYX"/>
+
+   <connection from="RXX" to="XXY"/>
+   <connection from="RXX" to="X0"/>
+   <connection from="RXX" to="XDX"/>
+
+   <connection from="DXX" to="XXY"/>
+   <connection from="DXX" to="X0"/>
+   <connection from="DXX" to="XRX"/>
+
+   <connection from="D00" to="0L0"/>
+   <connection from="D00" to="0X"/>
+   <connection from="D00" to="0Y"/>
+
+   <connection from="0X" to="XXY"/>
+   <connection from="0X" to="XRX"/>
+   <connection from="0X" to="XDX"/>
+
+   <connection from="XXY" to="XYUXY"/>
+   <connection from="XXY" to="XYRXY"/>
+   <connection from="XXY" to="XYY"/>
+
+   <connection from="XYY" to="YUY"/>
+   <connection from="XYY" to="YLY"/>
+   <connection from="XYY" to="Y0"/>
+
+   <connection from="Y0" to="0D0"/>
+   <connection from="Y0" to="0L0"/>
+   <connection from="Y0" to="0X"/>
+
+
+
 
 </connections>
