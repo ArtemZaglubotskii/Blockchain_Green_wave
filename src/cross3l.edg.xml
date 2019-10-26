@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/edges_file.xsd">
+   <edge id="1fi" from="1" to="m1" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="1si" from="m1" to="0" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="1o" from="0" to="1" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="2fi" from="q" to="m2" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="2si" from="m2" to="0" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="2o" from="0" to="q" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="3fi" from="3" to="m3" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="3si" from="m3" to="0" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="3o" from="0" to="3" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="4fi" from="4" to="m4" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="4si" from="m4" to="0" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="4o" from="0" to="4" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="q1fi" from="q1" to="qm1" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="q1si" from="qm1" to="q" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="q1o" from="q" to="q1" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="q2fi" from="q2" to="qm2" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="q2si" from="qm2" to="q" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="q2o" from="q" to="q2" priority="1" numLanes="3" speed="11.11"/>
+
+   <edge id="q3fi" from="q3" to="qm3" priority="2" numLanes="3" speed="11.11"/>
+   <edge id="q3si" from="qm3" to="q" priority="3" numLanes="3" speed="13.89"/>
+   <edge id="q3o" from="q" to="q3" priority="1" numLanes="3" speed="11.11"/>
+
+</edges>
