@@ -3,62 +3,22 @@ import "remix_tests.sol"; // this import is automatically injected by Remix.
 
 contract carscoins{
     
-    struct NumberCoins {
-        string number;
-        uint coins;
-    }
+    mapping (string => uint) public cars;
     
-    address owner = 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c;
-    
-    mapping (string => NumberCoins) public cars;
-    mapping (string => string) public uinum;
-    
-    function AddCar (string memory ui, string memory number) public {
-        if(msg.sender==owner){
-            if(!isNumberExist(number)){
-                cars[ui].number = number;
-                cars[ui].coins = 0;
-                uinum[number] = ui;
-            }
+    function AddCar (string memory number) public {
+        if(cars[number]==0){
+            cars[number]=0;
         }
     }
     
-    function GetUIFromNumber (string memory number) public view returns (string memory){
-        if(msg.sender==owner){
-            return uinum[number];
-        }
+    function AddCoinByNumber (string memory number, uint n) public {
+        uint current_coins = cars[number];
+        current_coins = current_coins+n;
+        cars[number]=current_coins;
     }
     
-    function isNumberExist (string memory number) public view returns(bool){
-        if(!compareStrings(uinum[number], "")){
-            return true;
-        }
+    function GetCoinByNumber (string memory number) public view returns(uint){
+        return cars[number];
     }
 
-    function GetCarCoinsFromUI (string memory ui) public view returns (uint){
-        if(msg.sender==owner){
-            return cars[ui].coins;
-        }
-    }
-    
-    function GetCarNumberFromUI (string memory ui) public view returns (string memory){
-        if(msg.sender==owner){
-            return cars[ui].number;
-        }
-    }
-    
-     function AddCoinByUI (string memory ui) public {
-         if(msg.sender==owner){
-             uint current_coins = cars[ui].coins;
-             current_coins = current_coins+1;
-             cars[ui].coins=current_coins;
-         }
-    }
-    
-    
-    
-    function compareStrings (string memory a, string memory b) public view returns (bool) {
-        return (keccak256(abi.encodePacked((a))) == keccak256(abi.encodePacked((b))) );
-    }
-    
 }

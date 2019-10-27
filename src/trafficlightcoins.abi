@@ -1,6 +1,6 @@
 [
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
 				"internalType": "string",
@@ -8,16 +8,10 @@
 				"type": "string"
 			}
 		],
-		"name": "GetTrafficLightX",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
+		"name": "AddTrafficlight",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -35,62 +29,6 @@
 			}
 		],
 		"name": "IncreaseTrafficLightCoins",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "trafficlights",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "x",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "y",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "coins",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "id",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "x",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "y",
-				"type": "uint256"
-			}
-		],
-		"name": "AddTrafficlight",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -122,11 +60,11 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "id",
+				"name": "",
 				"type": "string"
 			}
 		],
-		"name": "GetTrafficLightY",
+		"name": "trafficlights",
 		"outputs": [
 			{
 				"internalType": "uint256",
