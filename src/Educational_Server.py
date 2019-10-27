@@ -36,49 +36,52 @@ def register_traffic_light(count_of_traffic_lights):
     with open("private_keys.json", "w") as write_file:
         json.dump(traffic_lights_private_keys, write_file)
 
-def give_award_for_good_driver(number_of_car):
+def give_award_for_good_driver(number_of_car,count_money):
 
     d = open('registrar.json', 'r')
     account_config = json.load(d)
     contract_address = str(account_config['carcoins']['address'])
 
-    with open("carcoins.bin") as bin_file:
+    with open("carscoins.bin") as bin_file:
         content = json.loads(bin_file.read())
         bytecode = content['object']
 
-    with open("carcoins.abi") as abi_file:
+    with open("carscoins.abi") as abi_file:
         abi = json.loads(abi_file.read())
     contract_reg = web3.eth.contract(address=Web3.toChecksumAddress(contract_address), abi=abi,
                                      bytecode=bytecode)
 
-    f = open('network.json', 'r')
 
-    tx=contract_reg.functions.GetUIFromNumber(number_of_car).buildTransaction({'gas': 3000000 ,'nonce': web3.eth.getTransactionCount(
-                                                                                                        web3.eth.account.privateKeyToAccount(
-                                                                                                            str(private_key_for_senders_account)).address)})
+    tx=contract_reg.functions.AddCoinByNumber(number_of_car,count_money).transact()
 
     signed_tx = web3.eth.account.signTransaction(tx, private_key)
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    print(tx_hash)
 
-
-def give_award_for_good_team_of_traffic_lights(id1,id2):
+def give_award_for_good_team_of_traffic_lights(id1,id2,count_of_money):
     d = open('registrar.json', 'r')
     account_config = json.load(d)
     contract_address = str(account_config['trafficlights']['address'])
 
-    with open("registrar.bin") as bin_file:
+    with open("trafficlightcoins.bin") as bin_file:
         content = json.loads(bin_file.read())
         bytecode = content['object']
 
-    with open("registrar.abi") as abi_file:
+    with open("trafficlightcoins.abi") as abi_file:
         abi = json.loads(abi_file.read())
 
     contract_reg = web3.eth.contract(address=Web3.toChecksumAddress(contract_address), abi=abi,
                                      bytecode=bytecode)
-    f = open('network.json', 'r')
+
+    tx = contract_reg.functions.IncreaseTrafficLightCoins(id1, count_of_money).transact()
+
+    signed_tx = web3.eth.account.signTransaction(tx, private_key)
+    tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    print(tx_hash)
 
 
+car_number="A000AA"
+id="tl0"
 
-
-
-register_traffic_light(10)
+give_award_for_good_driver(car_number, 10)
+#give_award_for_good_team_of_traffic_lights(id, 0, 10)

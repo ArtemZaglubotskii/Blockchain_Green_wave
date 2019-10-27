@@ -39,11 +39,11 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "id",
+				"name": "",
 				"type": "string"
 			}
 		],
-		"name": "GetTrafficLightCoins",
+		"name": "trafficlights",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -60,11 +60,11 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "",
+				"name": "id",
 				"type": "string"
 			}
 		],
-		"name": "trafficlights",
+		"name": "GetTrafficLightCoins",
 		"outputs": [
 			{
 				"internalType": "uint256",

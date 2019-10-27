@@ -24,11 +24,7 @@ def add_car_number_for_address(car_number, private_key):
                                      bytecode=bytecode)
     f = open('network.json', 'r')
 
-    tx = contract_reg.functions.AddCar(car_number).buildTransaction({'gas': 3000000,
-                                                                                       'nonce': web3.eth.getTransactionCount(
-                                                                                           web3.eth.account.privateKeyToAccount(
-                                                                                               str(
-                                                                                                   private_key)).address)})
+    tx = contract_reg.functions.AddCar(car_number).transact()
     signed_tx = web3.eth.account.signTransaction(tx, private_key)
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
     time.sleep(5)

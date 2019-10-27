@@ -25,15 +25,14 @@ def add_id_for_address(traffic_light_id, private_key):
                                      bytecode=bytecode)
     f = open('network.json', 'r')
 
-    tx = contract_reg.functions.AddTrafficlight(traffic_light_id).buildTransaction({'gas': 3000000,
-                                                                                       'nonce': web3.eth.getTransactionCount(
-                                                                                           web3.eth.account.privateKeyToAccount(
-                                                                                               str(
-                                                                                                   private_key)).address)})
-    signed_tx = web3.eth.account.signTransaction(tx, private_key)
-    tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
-    time.sleep(5)
-    print('Registration request sent by ' + tx_hash.hex())
+    tx = contract_reg.functions.AddTrafficlight(traffic_light_id).transact()
+
+    txn_receipt = web3.eth.getTransactionReceipt(tx)
+    #signed_tx = web3.eth.account.signTransaction(tx, private_key)
+    #tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    time.sleep(10)
+    #print('Registration request sent by ' + tx_hash.hex())
+    print(txn_receipt['contractAddress'])
 
 def get_count_of_coin(id_of_traffic_light):
     d = open('registrar.json', 'r')
@@ -62,8 +61,8 @@ private_key=private_key_config[id]
 #Создание соответсвия адреса с id светофора
 address= service_function.generate_address(private_key)
 
-#add_id_for_address(id, private_key)
-#get_count_of_coin(id)
+add_id_for_address(id, private_key)
+get_count_of_coin(id)
 
 
 #Остальные функции для ML
