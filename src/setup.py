@@ -2,7 +2,10 @@ import argparse
 from web3 import Web3,HTTPProvider
 import json
 import time
-from src.blockchain_part import service_function
+import sys,os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'D:/Проекты/Green_wave/src'))
+import service_function
+
 
 network_config=open('network.json', 'r')
 rpcUrl=str(json.load(network_config)['rpcUrl'])
@@ -18,17 +21,18 @@ def key_to_value(args):
         addressUser = Web3.toChecksumAddress(
             web3.eth.account.privateKeyToAccount('0x' + str(private_key_for_senders_account)).address)
 
-        with open("") as bin_file:
+        with open("carscoins.bin") as bin_file:
             content = json.loads(bin_file.read())
             bytecode = content['object']
 
-        with open("") as abi_file:
+        with open("carscoins.abi") as abi_file:
             abi = json.loads(abi_file.read())
-        with open("") as bin_file:
+
+        with open("trafficlightcoins.bin") as bin_file:
             content1 = json.loads(bin_file.read())
             bytecode_pay = content1['object']
 
-        with open("") as abi_file:
+        with open("trafficlightcoins.abi") as abi_file:
             abi_pay = json.loads(abi_file.read())
 
 
@@ -54,6 +58,7 @@ def key_to_value(args):
         #txReceipt = wait_tx_receipt(txId)
         txReceipt1=web3.eth.waitForTransactionReceipt(txId)
 
+        print(txReceipt1)
 
         Contract_pay = web3.eth.contract(abi=abi_pay, bytecode=bytecode_pay)
 
@@ -73,13 +78,15 @@ def key_to_value(args):
         signed_tx_pay = web3.eth.account.signTransaction(tx_pay, private_key_for_senders_account)
         txId_pay = web3.eth.sendRawTransaction(signed_tx_pay.rawTransaction)
         txReceipt_pay1=web3.eth.waitForTransactionReceipt(txId_pay)
+        print(txReceipt_pay1)
+        time.sleep(5)
         if txReceipt_pay1['status'] == 1 and txReceipt1['status'] == 1:
-            print("KYC Registrar: " + txReceipt1['contractAddress'])
-            print("Payment Handler: " + txReceipt_pay1['contractAddress'])
+            print("Car Coins: " + txReceipt1['contractAddress'])
+            print("Traffic Lights: " + txReceipt_pay1['contractAddress'])
             with open('registrar.json', 'w') as filewrite:
-                data = {"registrar": {"address": Web3.toChecksumAddress(str(txReceipt1['contractAddress'])),
+                data = {"carcoins": {"address": Web3.toChecksumAddress(str(txReceipt1['contractAddress'])),
                                       "startBlock": int(txReceipt1['blockNumber'])},
-                        "payments": {"address": Web3.toChecksumAddress(str(txReceipt_pay1['contractAddress'])),
+                        "trafficlights": {"address": Web3.toChecksumAddress(str(txReceipt_pay1['contractAddress'])),
                                      "startBlock": int(txReceipt_pay1['blockNumber'])}}
                 json.dump(data, filewrite)
 
